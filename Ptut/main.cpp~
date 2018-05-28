@@ -1,0 +1,49 @@
+////////////////////////////////////////////////////////////   INCLUDES 
+
+#include "Periph.hpp"
+
+using namespace std ;
+
+///////////////////////////////////////////////////////////   VARIABLES GLOBALES
+
+int pin_led = 2 ;
+int pin_boutton = 6 ;
+int pin_potar = 1 ;
+ofstream out("out.txt");
+extern int compteur;
+
+int main (void) {
+
+
+  
+  mraa_init();
+  init_LCD();
+  init_led(pin_led) ;
+  cout << "InitOK\n";
+  while(1){
+   
+    if(get_boutton(pin_boutton)){
+      cout << "AllumerLED\n";
+      allumer_led (pin_led) ;
+       out << "(" << "LED ON" << ";" << compteur << ")" <<endl;
+    }else{
+      cout << "EteindreLED\n";
+      eteindre_led(pin_led) ;
+    }
+    
+    cout<< "Potard = " << get_potar(pin_potar)<<endl ;
+    afficher_LCD();
+    cout << "LCD OK\n";
+    sleep(1);
+    
+  i2Cmd(m_i2c_lcd_control, LCD_CLEARDISPLAY);
+  }
+ 
+  // fin
+  sleep(3);
+  mraa_i2c_stop(m_i2c_lcd_control);
+  
+
+
+}
+
