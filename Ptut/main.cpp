@@ -48,8 +48,8 @@ int valeur_boutton ;
   cout << "InitOK\n";
   
   // simulation entree personne
-  out << "(" << "Badge_Personne" << ";" << date_evt << ")" <<endl;
-  //  out << "(" << "FranchissementAppt" << ";" << date_evt << ")" <<endl;
+  out << "(" << "Badge_Personne" << ";" << date_evt << ")" << "\r\n";
+  //  out << "(" << "FranchissementAppt" << ";" << date_evt << ")" <<"\r\n";
   
   while(1){
 
@@ -62,7 +62,7 @@ int valeur_boutton ;
 
     if(!reflecteur_sdb){
       if (reflecteur_sdb_int == 0 ){
-	out << "(" << "FranchissementSDB" << ";" << date_evt << ")" <<endl;
+	out << "(" << "FranchissementSDB" << ";" << date_evt << ")" <<"\r\n";
 	reflecteur_sdb_int =1;
 	date_entree= compteur;}
       
@@ -72,7 +72,7 @@ int valeur_boutton ;
 
     if(!reflecteur_chambre){
       if (reflecteur_chambre_int == 0 ){
-	out << "(" << "FranchissementChb" << ";" << date_evt << ")" <<endl;
+	out << "(" << "FranchissementChb" << ";" << date_evt << ")" <<"\r\n";
 	reflecteur_chambre_int =1;
       	date_entree= compteur;}
 
@@ -82,7 +82,7 @@ int valeur_boutton ;
     
     if(!reflecteur_entrance){
       if (reflecteur_entrance_int == 0 ){
-	out << "(" << "FranchissementAppt" << ";" << date_evt << ")" <<endl;
+	out << "(" << "FranchissementAppt" << ";" << date_evt << ")" <<"\r\n";
 	reflecteur_entrance_int =1;
       	date_entree= compteur;}
 
@@ -92,7 +92,7 @@ int valeur_boutton ;
     
     if(valeur_boutton){
       if (boutton_appuye == 0 ){
-	out << "(" << "Appui" << ";" << date_evt << ")" <<endl;
+	out << "(" << "Appui" << ";" << date_evt << ")" <<"\r\n";
 	boutton_appuye =1;}
     }else {
       boutton_appuye = 0 ;
@@ -101,7 +101,7 @@ int valeur_boutton ;
 	  //On peut aussi rajouter un switch si le besoin s'en fait sentir
     /* if(etat_switch){
       if (switch_state == 0 ){
-	out << "(" << "Switch" << ";" << date_evt << ")" <<endl;
+	out << "(" << "Switch" << ";" << date_evt << ")" <<"\r\n";
 	switch_state =1;}
     }else {
       switch_state = 0 ;
@@ -110,7 +110,7 @@ int valeur_boutton ;
 
     if (heure >= 22){
       if (heure_22 == 0 ){
-	out << "(" << "Apres22_heures" << ";" << date_evt << ")" <<endl;
+	out << "(" << "Apres22_heures" << ";" << date_evt << ")" <<"\r\n";
 	heure_22 = 1; }
     }else {
       heure_22  = 0 ;
@@ -119,7 +119,7 @@ int valeur_boutton ;
     if ((valeur_potentiometre) < 15.0){
       if (temp_15 == 0 ){
 
-	out << "(" << "Temp_15" << ";" << date_evt << ")" <<endl;
+	out << "(" << "Temp_15" << ";" << date_evt << ")" <<"\r\n";
 	temp_15 =1;}
     }else if (temp_15 && valeur_potentiometre > 15.5)  {
       temp_15 = 0 ;
@@ -128,7 +128,7 @@ int valeur_boutton ;
     if (valeur_potentiometre >30.0){
       if (temp_30 == 0 ){
 
-	out << "(" << "Temp_30" << ";" << date_evt << ")" <<endl;
+	out << "(" << "Temp_30" << ";" << date_evt << ")" <<"\r\n";
 	temp_30 =1;}
     }else if (temp_30 && valeur_potentiometre < 29.5){
       temp_30 = 0 ;
@@ -142,7 +142,7 @@ int valeur_boutton ;
       date_evt ++ ;
      i2Cmd(m_i2c_lcd_control, LCD_CLEARDISPLAY);
      afficher_LCD();
-     cout<< "potentiometre = " << valeur_potentiometre<<endl ;
+     cout<< "potentiometre = " << valeur_potentiometre<<"\r\n" ;
 	    
       if (date ==60) {
 	heure ++; // heure en m reelle, utilise comme heure maquette 
