@@ -50,10 +50,6 @@ extern mraa_gpio_context m_gpio_reflecteur_sdb ;
 extern mraa_gpio_context m_gpio_reflecteur_chambre ;
 extern mraa_gpio_context m_gpio_reflecteur_entrance ;
 
-
-
-
-
 mraa_result_t i2cData (mraa_i2c_context ctx, uint8_t value);
 
 mraa_result_t i2Cmd (mraa_i2c_context ctx, uint8_t value)  ;
@@ -61,9 +57,7 @@ mraa_result_t i2Cmd (mraa_i2c_context ctx, uint8_t value)  ;
 mraa_result_t i2cReg (mraa_i2c_context ctx, int deviceAdress, int addr, uint8_t value) ;
 
 void init_LCD();
-
 void afficher_LCD();
-
 void init_led (int pin);
 void allumer_led (int pin);
 void eteindre_led (int pin);
@@ -75,6 +69,5 @@ void init_switch(int pin);
 int get_switch (int pin);
 void init_reflecteur();
 int get_reflecteur (mraa_gpio_context lieu);
-
 
 #endif
