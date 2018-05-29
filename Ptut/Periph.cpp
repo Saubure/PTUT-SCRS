@@ -1,6 +1,5 @@
 #include "Periph.hpp"
 
-
 int date = 0 ;
 int heure = 7 ;
 char buffer[50];
@@ -18,8 +17,6 @@ mraa_gpio_context m_gpio_reflecteur_entrance ;
 extern int pin_reflecteur_sdb  ;
 extern int pin_reflecteur_chambre  ;
 extern int pin_reflecteur_entrance ;
-
-
 
 // positionnement ligne 1 colonne 2
 int row=0, column=5;
@@ -92,10 +89,7 @@ void init_LCD(){
   i2Cmd(m_i2c_lcd_control, offset);
 }
 
-
 void afficher_LCD(){  
-
-
            
   sprintf(buffer,"%d : %d",heure,date);
   string msg = buffer ;
@@ -105,10 +99,7 @@ void afficher_LCD(){
   for (std::string::size_type i = 0; i < msg.size(); ++i) {
     i2cData (m_i2c_lcd_control, msg[i]);
   }
-
-
 }
-
 
 void init_led (int pin) {
  m_gpio_led = mraa_gpio_init(pin);
@@ -121,8 +112,8 @@ void allumer_led (int pin){
   // alummage 
   mraa_gpio_write(m_gpio_led, 1);
 
-
 }
+
 void eteindre_led (int pin){
 
   mraa_gpio_write(m_gpio_led, 0);
@@ -160,7 +151,6 @@ double get_potentiometre(int pin){
   return potentiometre ;
 
 }
-
 
 void init_switch(int pin){
 
