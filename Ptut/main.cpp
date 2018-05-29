@@ -28,9 +28,6 @@ bool reflecteur_sdb_int ;
 int date_evt = 0;
 int date_entree = 0 ;
 
-
-
-
 int main (void) {
   
 double valeur_potentiometre ;
@@ -39,7 +36,6 @@ int valeur_boutton ;
  int reflecteur_entrance;
  int reflecteur_chambre;
  int etat_switch ;
-
   
   mraa_init();
   init_LCD();
@@ -63,7 +59,6 @@ int valeur_boutton ;
     reflecteur_entrance = get_reflecteur(m_gpio_reflecteur_entrance);
     reflecteur_chambre = get_reflecteur(m_gpio_reflecteur_chambre);
     reflecteur_sdb = get_reflecteur(m_gpio_reflecteur_sdb);
-
 
     if(!reflecteur_sdb){
       if (reflecteur_sdb_int == 0 ){
@@ -103,6 +98,7 @@ int valeur_boutton ;
       boutton_appuye = 0 ;
     }
 
+	  //On peut aussi rajouter un switch si le besoin s'en fait sentir
     /* if(etat_switch){
       if (switch_state == 0 ){
 	out << "(" << "Switch" << ";" << date_evt << ")" <<endl;
@@ -129,7 +125,6 @@ int valeur_boutton ;
       temp_15 = 0 ;
     }
 
-
     if (valeur_potentiometre >30.0){
       if (temp_30 == 0 ){
 
@@ -138,9 +133,7 @@ int valeur_boutton ;
     }else if (temp_30 && valeur_potentiometre < 29.5){
       temp_30 = 0 ;
     }
-    
-    
-
+   
     sleep(0.1);
  
       compteur ++; // compteur en *10 ms reel
@@ -150,26 +143,17 @@ int valeur_boutton ;
      i2Cmd(m_i2c_lcd_control, LCD_CLEARDISPLAY);
      afficher_LCD();
      cout<< "potentiometre = " << valeur_potentiometre<<endl ;
-
-      
+	    
       if (date ==60) {
 	heure ++; // heure en m reelle, utilise comme heure maquette 
         date = 0 ;
 	if (heure ==24) {
 	  heure = 0 ;
-	}
-	
+	}	
+      }      
       }
-      
-      
-      }
-
   }
- 
   // fin
   sleep(3);
-  
-
-
 }
 
